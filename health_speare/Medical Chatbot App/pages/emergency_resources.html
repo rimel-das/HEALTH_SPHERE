@@ -13,6 +13,20 @@
     />
     <title>Emergency Resources - HEALTH SPHERE</title>
     <link rel="stylesheet" href="../css/main.css" />
+    <script>
+      // Initialize theme immediately before page renders to prevent flashing
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const isDark =
+          savedTheme === "dark" || (savedTheme === null && prefersDark);
+        if (isDark) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
 
     <script
       type="module"
@@ -2020,6 +2034,7 @@
         }, 3000);
       });
     </script>
+    <script></script>
     <script
       id="dhws-dataInjector"
       src="../public/dhws-data-injector.js"
